@@ -8,6 +8,7 @@ ENV MKDOCS_VERSION=1.1 \
     PYTHONUNBUFFERED=1
 
 ADD bootstrap/ /bootstrap
+ADD matdoc/ /matdoc
 
 RUN \
     apk add --update \
