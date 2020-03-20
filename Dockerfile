@@ -7,7 +7,6 @@ ENV MKDOCS_VERSION=1.1 \
     FAST_MODE='false' \
     PYTHONUNBUFFERED=1
 
-ADD bootstrap/ /bootstrap
 ADD matdoc/ /matdoc
 
 RUN \
@@ -22,10 +21,7 @@ RUN \
         python3-dev && \
     pip3 install --upgrade pip && \
     pip install mkdocs==${MKDOCS_VERSION} && \
-    cd /bootstrap && pip install -e /bootstrap && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/* && \
     pip install pygments mkdocs-material pymdown-extensions mkdocs-awesome-pages-plugin   
 
 WORKDIR ${DOCS_DIRECTORY}
-
-CMD ["/usr/bin/bootstrap", "start"]
